@@ -2,7 +2,7 @@ name: Trivy Security Scan
 
 inputs:
   config-path:
-    default: 'scrips/trivy/trivy.yml'
+    default: 'scripts/trivy/trivy.yml'
     description: 'Path to trivy.yml relative to the consumer repo'
   severity:
     default: 'HIGH,CRITICAL'
