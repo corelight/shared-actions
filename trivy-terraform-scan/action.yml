@@ -69,7 +69,6 @@ runs:
       with:
         script: |
           const fs   = require('fs');
-          const core = require('@actions/core');
           const { owner, repo } = context.repo;
 
           const report = fs.readFileSync('trivy-report.txt', 'utf8')
