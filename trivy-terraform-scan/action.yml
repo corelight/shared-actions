@@ -4,12 +4,6 @@ inputs:
   config-path:
     default: 'scripts/trivy/trivy.yml'
     description: 'Path to trivy.yml relative to the consumer repo'
-  severity:
-    default: 'HIGH,CRITICAL'
-    description: 'Comma-separated severities that mark the scan failed'
-  scanners:
-    default: 'misconfig,secret'
-    description: 'Trivy scanners (comma-separated)'
   open-issue:
     default: 'true'
     description: 'true → open/update an issue when findings exist'
@@ -43,8 +37,6 @@ runs:
         set +e
         trivy fs \
           --config "${{ inputs.config-path }}" \
-          --scanners "${{ inputs.scanners }}" \
-          --severity "${{ inputs.severity }}" \
           --format table \
           --output trivy-report.txt \
           --exit-code 1 \
